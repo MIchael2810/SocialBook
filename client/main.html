@@ -4,35 +4,96 @@
 
 <body>
   <div class= "container">
+    <div class= "container">
+       <div class="justify-content-around row">
+        <div class="col-sm-3">
+          <h1>Social Book</h1>
+          </div>
+        </div>
+      </div>
+    {{>addProfile}}
     {{>Michael}}
+
   </div>
 </body>
     
 <template name="Michael">
   <div class="justify-content-around row">
-    <div class="col-4">
+    <div class="col-sm-5">
       <img src="bear.gif" class="pic" alt="">
     </div>
   </div>
 
   <div class="row justify-content-around row">
     <div class="col-sm-2">
-      <h1 class="display-4">Michael</h1>
+      <h1 class="display-5">Michael</h1>
     </div>
   </div>
 
   <div class="row justify-content-around row">
     <div class="col-sm-4">
       <div class="justify-content-around row">
+        
         <div class="col-sm-4">
           <button class="btn btn-primary js-like">like</button>
         </div>
+
+      
         <div class="col-sm-4">
-          <button class="btn-warning js-dislike">dislike</button>
+          <button class="btn-primary js-dislike">dislike</button>
         </div>
       </div>
     </div>
   </div>
 </template>
 
- 
+ <template name="addProfile">
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+  Add user
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Adding User</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      
+      <div class="modal-body">
+        
+        <form>
+  <div class="form-group row">
+    <label for="InsertFirstname" class="col-sm-2 col-form-label">FirstName</label>
+    <div class="col-sm-10">
+      <input type="text"  class="form-control" id="inputEmail" placeholder="FirstName" name= "FirstName">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="inputLastname" class="col-sm-2 col-form-label">LastName</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="inputPassword" placeholder="LastName" name= "LastName">
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label for="inputImage" class="col-sm-2 col-form-label">InsertImage</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="Image" placeholder="Image" name= "Image">
+    </div>
+  </div>
+
+</form>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary js-saveProfile">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+</template>
