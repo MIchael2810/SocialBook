@@ -14,29 +14,31 @@ Template.Michael.events({
   	},
 });
 
+Template.Michael.helpers({
+	profFname(){
+		return userDB.findOne({}).FirstName;
+
+
+	}
+}); 
 
 
 Template.addProfile.events({ 
  'click .js-saveProfile'(event, instance) { 
+
  	var fName = $("#exampleModal input[name='FirstName']").val();
- 	console.log("The first name is")
-
- 	var lName = $("#exampleModal input[name='LasttName']").val();
- 	console.log("The Last name is")
-
+ 	var lName = $("#exampleModal input[name='LastName']").val();
  	var Image = $("#exampleModal input[name='Image']").val();
- 	console.log("The Image")
+ 	
+ 	console.log("The first name is",fName)
+	console.log("The Last name is",lName)
+ 	console.log("The Image",Image)
 
-
-var fName = $("#exampleModal input[name='FirstName']").val('');
- 	console.log("The first name is")
-
- 	var lName = $("#exampleModal input[name='LasttName']").val('');
- 	console.log("The Last name is")
-
- 	var Image = $("#exampleModal input[name='Image']").val('');
- 	console.log("The Image")
-
+	$("#exampleModal input[name='FirstName']").val('');
+	$("#exampleModal input[name='LastName']").val('');
+	$("#exampleModal input[name='Image']").val('');
+	
 	$("#exampleModal").modal("hide");
+	userDB.insert({'FirstName':fName, 'LastName':lName, 'Image':Image});
   },
 });
