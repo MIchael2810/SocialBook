@@ -20,8 +20,9 @@
     
 <template  name="Michael">
   {{#each profAll}}
+  <div class="row">
   <div id="{{_id}}" class="col">
-    <div class="row">
+    
       <!-- <div class="col-1">
         <i id={{_id}} class="zmdi zmdi-hc-2x zmdi-close js-delete"></i>
      </div>
@@ -85,7 +86,7 @@
           </div>
           <div class="col">
             Name : {{FirstName}} {{LastName}}<br>
-            Likes : {{numLikes}}&nbsp;Dislikes : {{numDislikes}}<br>
+            Likes : {{like}}&nbsp;  Dislikes : {{dislike}}<br>
           </div>
         </div>
       </div>
