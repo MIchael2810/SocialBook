@@ -12,21 +12,33 @@
         </div>
       </div>
     {{>addProfile}}
+    <div class="row">
     {{>Michael}}
-
+  </div>
   </div>
 </body>
     
-<template name="Michael">
+<template  name="Michael">
+  {{#each profAll}}
+  <div id="{{_id}}" class="col">
+    <div class="row">
+      <!-- <div class="col-1">
+        <i id={{_id}} class="zmdi zmdi-hc-2x zmdi-close js-delete"></i>
+     </div>
+  </div>
+ -->
+
   <div class="justify-content-around row">
-    <div class="col-sm-5">
-      <img src="bear.gif" class="pic" alt="">
+    <div class="col-5">
+      <button type="button" class="js-editProfile btn btn-primary">
+        <img src="{{Imagepic}}" class="img" alt="">
+      </button>
     </div>
   </div>
 
   <div class="row justify-content-around row">
     <div class="col-sm-2">
-      <h1 class="display-5">{{profFname}}</h1>
+      <h1 class="display-5">{{FirstName}}&nbsp;{{LastName}}</h1>
     </div>
   </div>
 
@@ -34,18 +46,63 @@
     <div class="col-sm-4">
       <div class="justify-content-around row">
         
+
+      <h1 class="display-1"></h1>
         <div class="col-sm-4">
           <button class="btn btn-primary js-like">like</button>
+            <h1 class="display-4">
+              {{like}}
+            </h1>
         </div>
 
       
         <div class="col-sm-4">
           <button class="btn-primary js-dislike">dislike</button>
+           <h1 class="display-4">
+         {{dislike}}</h1>
+        
         </div>
       </div>
     </div>
   </div>
+  </div>
+
+
+    <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">{{FirstName}}&nbsp;{{LastName}} Information</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      
+      <div class="modal-body">
+        <div class="row">
+          <div class="col">
+            <img src="{{Imagepic}}" class="img" alt="">           
+          </div>
+          <div class="col">
+            Name : {{FirstName}} {{LastName}}<br>
+            Likes : {{numLikes}}&nbsp;Dislikes : {{numDislikes}}<br>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary js-saveProfile">Save changes</button>
+        <button type="button" class="btn btn-primary js-delete">Delete</button>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+  {{/each}}
 </template>
+
+
+
 
  <template name="addProfile">
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
@@ -67,22 +124,22 @@
         
         <form>
   <div class="form-group row">
-    <label for="InsertFirstname" class="col-sm-2 col-form-label">FirstName</label>
+    <label for="InsertFirstame" class="col-sm-2 col-form-label">FirstName</label>
     <div class="col-sm-10">
       <input type="text"  class="form-control" id="inputFirstname" placeholder="FirstName" name= "FirstName">
     </div>
   </div>
   <div class="form-group row">
-    <label for="inputLastname" class="col-sm-2 col-form-label">LastName</label>
+    <label for="inputLastName" class="col-sm-2 col-form-label">LastName</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control" id="inputLasttname" placeholder="LastName" name= "LastName">
+      <input type="text" class="form-control" id="inputLastname" placeholder="LastName" name= "LastName">
     </div>
   </div>
 
   <div class="form-group row">
     <label for="inputImage" class="col-sm-2 col-form-label">InsertImage</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control" id="Image" placeholder="Image" name= "Image">
+      <input type="text" class="form-control" id="Imagepic" placeholder="Imagepic" name= "Imagepic">
     </div>
   </div>
 
@@ -97,3 +154,8 @@
   </div>
 </div>
 </template>
+
+
+
+
+
